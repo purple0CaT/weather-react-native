@@ -7,6 +7,11 @@ export const weatherReducer = (state = initialState.weather, action) => {
         ...state,
         search: action.payload,
       };
+    case "CLEAR_CORD":
+      return {
+        ...state,
+        mycord: { lon: null, lat: null },
+      };
     default:
       return state;
   }

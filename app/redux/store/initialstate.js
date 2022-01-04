@@ -10,8 +10,8 @@ export const initialState = {
     loading: false,
     history: [],
     mycord: {
-      longitude: null,
-      latitude: null,
+      lon: null,
+      lat: null,
     },
   },
 };

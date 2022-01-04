@@ -7,6 +7,14 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 5,
   },
+  card: {
+    flex: 0.5,
+    flexDirection: "row",
+    borderRadius: 10,
+    backgroundColor: "white",
+    margin: 10,
+    padding: 5,
+  },
 });
 
 export default styles;

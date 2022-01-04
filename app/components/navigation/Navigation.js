@@ -1,9 +1,9 @@
 import { Ionicons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { TouchableOpacity } from "react-native";
-import HomeScreen from "../screen/Home";
-import Profile from "../screen/Profile";
-import Weather from "../screen/Weather";
+import HomeScreen from "../../screen/Home";
+import Profile from "../../screen/Profile";
+import Weather from "../../screen/Weather";
 //
 const Tab = createBottomTabNavigator();
 //
