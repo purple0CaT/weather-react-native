@@ -13,30 +13,42 @@ function MyTabs() {
       screenOptions={({ route }) => ({
         tabBarShowLabel: false,
         headerShown: false,
-        tabBarOptions: {
-          activeTintColor: "tomato",
-          inactiveTintColor: "gray",
-        },
         tabBarStyle: {
           position: "absolute",
           bottom: 5,
           left: 5,
           right: 5,
           elevation: 0,
-          backgroundColor: "#C5E5E5",
+          backgroundColor: "#b0ebeb",
           borderRadius: 10,
-          height: 50,
+          height: 40,
+          shadowColor: "#000000",
+          shadowOpacity: 0.8,
+          shadowRadius: 4,
+          shadowOffset: {
+            height: 1,
+            width: 1,
+          },
         },
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
+          let iconColor;
           if (route.name === "Home") {
             iconName = focused ? "ios-home-sharp" : "ios-home-outline";
+            iconColor = focused ? "tomato" : "gray";
           } else if (route.name === "Profile") {
             iconName = focused
               ? "md-person-circle-sharp"
               : "md-person-circle-outline";
+            iconColor = focused ? "tomato" : "gray";
           }
-          return <Ionicons name={iconName ? iconName : "search"} size={24} />;
+          return (
+            <Ionicons
+              name={iconName ? iconName : "search"}
+              size={24}
+              color={iconColor ? iconColor : "grey"}
+            />
+          );
         },
       })}
     >
