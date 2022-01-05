@@ -30,7 +30,7 @@ export default function Login() {
           color: "grey",
           marginBottom: 40,
           textAlign: "center",
-        //   marginBottom: "auto",
+          //   marginBottom: "auto",
         }}
       >
         Log in
@@ -42,6 +42,7 @@ export default function Login() {
           value={UserName}
           onChangeText={(val) => setUserName(val)}
           style={styles.profileNameInput}
+          onSubmitEditing={handleNameSetup}
         />
         <Button
           disabled={UserName ? false : true}
