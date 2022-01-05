@@ -29,7 +29,15 @@ const Map = () => {
     longitudeDelta: LONGITUDE_DELTA,
   };
   return (
-    <View style={{ width: "100%", height: "100%" }}>
+    <View
+      style={{
+        width: "100%",
+        height: "100%",
+        borderRadius: 10,
+        overflow: "hidden",
+      }}
+    >
+      {/* === Side bar === */}
       <View
         style={{
           position: "absolute",

@@ -10,11 +10,7 @@ export default function MainCard() {
     <View style={style.cardWrapper}>
       <MainWeather />
       <View
-        style={[
-          style.card,
-          globalStyle.shadowProps,
-          { flex: 0.6, padding: 0, overflow: "hidden" },
-        ]}
+        style={[style.card, globalStyle.shadowProps, { flex: 0.6, padding: 0 }]}
       >
         <Map />
       </View>
