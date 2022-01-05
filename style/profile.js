@@ -2,7 +2,8 @@ import { StyleSheet } from "react-native";
 //
 const styles = StyleSheet.create({
   setProfileNameCard: {
-    flex: 0.2,
+    // flex: 0.2,
+    padding: 15,
     flexDirection: "column",
     width: "100%",
     alignItems: "center",
@@ -11,11 +12,11 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
   },
   profileNameInput: {
-    width: "90%",
+    width: "80%",
     height: 50,
     borderRadius: 20,
     backgroundColor: "white",
-    marginBottom: 20,
+    marginBottom: 10,
     color: "black",
     fontSize: 20,
     padding: 10,

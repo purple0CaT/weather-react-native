@@ -49,15 +49,14 @@ class Map extends React.Component {
           provider={null}
           mapType={this.mapType}
           rotateEnabled={false}
-          style={{ flex: 0.4 }}
           style={styles.map}
           showsUserLocation
         >
-          <UrlTile
+          {/* <UrlTile
             urlTemplate="https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png"
             maximumZ={19}
             zIndex={1}
-          />
+          /> */}
           <UrlTile
             urlTemplate={`https://tile.openweathermap.org/map/clouds_new/{z}/{x}/{y}.png?appid=2bfd5ccc7de6daf21fc35b1af7b3431c`}
             maximumZ={19}
