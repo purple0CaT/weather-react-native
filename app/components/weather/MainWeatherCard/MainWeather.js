@@ -10,7 +10,13 @@ export default function MainWeather() {
   return (
     <View style={[style.card, globalStyle.shadowProps]}>
       <View style={{ flex: 0.5 }}>
-        <View style={{ flexDirection: "row", alignItems: "center" }}>
+        <View
+          style={{
+            flexDirection: "row",
+            alignItems: "center",
+            marginBottom: "auto",
+          }}
+        >
           <Image
             style={{ width: 100, height: 100 }}
             source={{
