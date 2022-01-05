@@ -40,9 +40,9 @@ export default function MainWeather() {
           <Text style={{ fontWeight: "bold", color: "grey" }}>Pressure: </Text>
           <Text style={{ fontSize: 16 }}>1015 hPa</Text>
         </View>
-        <View style={{ flexDirection: "row", alignItems: "baseline" }}>
+        <View style={{ flexDirection: "row", alignItems: "center" }}>
           <Text style={{ fontWeight: "bold", color: "grey" }}>Wind: </Text>
-          <Text style={{ fontSize: 16, marginRight: 5 }}>4.63m/s</Text>
+          <Text style={{ fontSize: 16, marginRight: 10 }}>4.63m/s</Text>
           <View
             style={{
               borderRadius: "50%",
