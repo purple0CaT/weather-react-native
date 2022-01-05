@@ -13,3 +13,7 @@ export const clearUser = () => ({
 export const clearCord = () => ({
   type: "CLEAR_CORD",
 });
+export const setSearchFocus = (value) => ({
+  type: "SET_SEARCH_FOCUS",
+  payload: value,
+});

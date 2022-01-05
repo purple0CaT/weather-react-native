@@ -7,6 +7,7 @@ export const initialState = {
     oneday: {},
     days: [],
     latest: [],
+    onFocus: false,
     loading: false,
     history: [],
     mycord: {

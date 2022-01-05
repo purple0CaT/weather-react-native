@@ -12,6 +12,11 @@ export const weatherReducer = (state = initialState.weather, action) => {
         ...state,
         mycord: { lon: null, lat: null },
       };
+    case "SET_SEARCH_FOCUS":
+      return {
+        ...state,
+        onFocus: action.payload,
+      };
     default:
       return state;
   }

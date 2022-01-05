@@ -1,6 +1,8 @@
 import { Ionicons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { TouchableOpacity } from "react-native";
+import { useDispatch, useSelector } from "react-redux";
+import { setSearchFocus } from "../../redux/actions";
 import HomeScreen from "../../screen/Home";
 import Profile from "../../screen/Profile";
 import Weather from "../../screen/Weather";
@@ -8,6 +10,8 @@ import Weather from "../../screen/Weather";
 const Tab = createBottomTabNavigator();
 //
 function MyTabs() {
+  const weather = useSelector((state) => state.weather);
+  const dispatch = useDispatch();
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
@@ -23,7 +27,7 @@ function MyTabs() {
           borderRadius: 20,
           height: 40,
           shadowColor: "#000000",
-          shadowOpacity: 0.8,
+          shadowOpacity: 0.2,
           shadowRadius: 4,
           shadowOffset: {
             height: 1,
@@ -58,7 +62,10 @@ function MyTabs() {
         component={Weather}
         options={({ navigation }) => ({
           tabBarButton: (props) => (
-            <TouchableOpacity {...props} onPress={() => alert("Search")} />
+            <TouchableOpacity
+              {...props}
+              onPress={() => dispatch(setSearchFocus(!weather.onFocus))}
+            />
           ),
         })}
       />

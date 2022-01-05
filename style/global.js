@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     borderRadius: 10,
     backgroundColor: "white",
-    margin: 10,
+    margin: 20,
     padding: 5,
   },
 });
