@@ -1,0 +1,43 @@
+{
+  "coord": {
+    "lon": -3.0024,
+    "lat": 53.4698
+  },
+  "weather": [
+    {
+      "id": 802,
+      "main": "Clouds",
+      "description": "scattered clouds",
+      "icon": "03n"
+    }
+  ],
+  "base": "stations",
+  "main": {
+    "temp": 5.74,
+    "feels_like": 1.77,
+    "temp_min": 4.26,
+    "temp_max": 7.17,
+    "pressure": 1004,
+    "humidity": 90
+  },
+  "visibility": 10000,
+  "wind": {
+    "speed": 6.17,
+    "deg": 180
+  },
+  "clouds": {
+    "all": 40
+  },
+  "dt": 1641491285,
+  "sys": {
+    "type": 2,
+    "id": 2011771,
+    "country": "GB",
+    "sunrise": 1641457582,
+    "sunset": 1641485328
+  },
+  "timezone": 0,
+  "id": 2644386,
+  "name": "Litherland",
+  "cod": 200
+}

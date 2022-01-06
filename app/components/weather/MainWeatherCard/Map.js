@@ -1,33 +1,32 @@
+import { FontAwesome5 } from "@expo/vector-icons";
 import React, { useState } from "react";
 import {
   Dimensions,
   Image,
   StyleSheet,
-  Text,
   TouchableWithoutFeedback,
   View,
 } from "react-native";
-import MapView, { MAP_TYPES, UrlTile } from "react-native-maps";
-import { RadioButton } from "react-native-paper";
-import { FontAwesome5 } from "@expo/vector-icons";
+import MapView, { MAP_TYPES, Marker, UrlTile } from "react-native-maps";
 //
 const { width, height } = Dimensions.get("window");
 
 const ASPECT_RATIO = width / height;
-const LATITUDE = 53.920555;
-const LONGITUDE = -1.858633;
+const LATITUDE = 53.4084;
+const LONGITUDE = -2.9916;
 const LATITUDE_DELTA = 0.0922;
 const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 
-const Map = () => {
+const Map = ({ coord }) => {
   const [Checked, setChecked] = useState("clouds_new");
   //
   const region = {
-    latitude: LATITUDE,
-    longitude: LONGITUDE,
+    latitude: coord.lat,
+    longitude: coord.lon,
     latitudeDelta: LATITUDE_DELTA,
     longitudeDelta: LONGITUDE_DELTA,
   };
+  //   =========== JS
   return (
     <View
       style={{
@@ -99,21 +98,21 @@ const Map = () => {
       <MapView
         region={region}
         provider={null}
-        mapType={MAP_TYPES.NONE}
         rotateEnabled={false}
         style={styles.map}
-        showsUserLocation
-        showsMyLocationButton
       >
+        <Marker
+          coordinate={{ latitude: coord.lat, longitude: coord.lon }}
+          // title={"title"}
+        />
         {/* <UrlTile
-            urlTemplate="https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png"
-            maximumZ={19}
-            zIndex={1}
-          /> */}
+          urlTemplate="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          maximumZ={19}
+          zIndex={999}
+        /> */}
         <UrlTile
           urlTemplate={`https://tile.openweathermap.org/map/${Checked}/{z}/{x}/{y}.png?appid=2bfd5ccc7de6daf21fc35b1af7b3431c`}
           maximumZ={19}
-          zIndex={99}
         />
       </MapView>
     </View>
