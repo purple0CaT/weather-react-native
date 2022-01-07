@@ -17,6 +17,16 @@ export const weatherReducer = (state = initialState.weather, action) => {
         ...state,
         onFocus: action.payload,
       };
+    case "USER_POSITION":
+      return {
+        ...state,
+        mycord: { lon: action.payload.lon, lat: action.payload.lat },
+      };
+    case "USER_POSITION_DELETE":
+      return {
+        ...state,
+        mycord: { lon: "", lat: "" },
+      };
     default:
       return state;
   }

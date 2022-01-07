@@ -1,17 +1,21 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { RefreshControl, ScrollView, Text, View } from "react-native";
 import NavBar from "../components/navbar/NavBar";
 import HomeHistory from "../components/weather/MainWeatherCard/HomeHistory";
 import MainCard from "../components/weather/MainWeatherCard/MainCard";
 import weatherNow from "../TestData.json";
 import weather from "../DataHistory.json";
+import { useScrollToTop } from "@react-navigation/native";
 //
 export default function HomeScreen() {
   const [Refresh, setRefresh] = useState(false);
+  const ref = useRef();
+  useScrollToTop(ref);
+
   return (
     <View style={{ backgroundColor: "#EEEEEE" }}>
       <NavBar />
-      <ScrollView>
+      <ScrollView ref={ref}>
         <RefreshControl
           refreshing={Refresh}
           onRefresh={() => {
