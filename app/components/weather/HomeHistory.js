@@ -4,8 +4,11 @@ import { Feather } from "@expo/vector-icons";
 import { FlatList, Image, Text, TouchableOpacity, View } from "react-native";
 import globalStyle from "../../../style/global";
 import styles from "../../../style/weatherCard";
+import { useNavigation } from "@react-navigation/native";
+
 //
 export default function HomeHistory({ weather }) {
+  const navigation = useNavigation();
   return (
     <View style={{ height: 340 }}>
       <Text
@@ -24,7 +27,7 @@ export default function HomeHistory({ weather }) {
         keyExtractor={(W) => W.id + Math.random()}
         renderItem={({ item }) => (
           <TouchableOpacity
-            onPress={() => alert("Click")}
+            onPress={() => navigation.navigate("Weather")}
             style={[styles.homeHistoryCard, globalStyle.shadowProps]}
           >
             <>

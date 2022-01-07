@@ -6,6 +6,7 @@ import { setSearchFocus } from "../../redux/actions";
 import HomeScreen from "../../screen/Home";
 import Profile from "../../screen/Profile";
 import Weather from "../../screen/Weather";
+
 //
 const Tab = createBottomTabNavigator();
 //
@@ -60,7 +61,7 @@ function MyTabs() {
       <Tab.Screen
         name="Weather"
         component={Weather}
-        options={({ navigation }) => ({
+        options={() => ({
           tabBarButton: (props) => (
             <TouchableOpacity
               {...props}

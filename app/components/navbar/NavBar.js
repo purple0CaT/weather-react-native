@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
-import { View, Text, TextInput, ActivityIndicator } from "react-native";
-import styles from "../../../style/navBar.js";
 import { Ionicons } from "@expo/vector-icons";
+import React, { useEffect, useRef } from "react";
+import { TextInput, TouchableWithoutFeedback, View, Text } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
+import styles from "../../../style/navBar.js";
 import { setSearchQuery } from "../../redux/actions.js";
 // import Spinner from "react-native-spinkit";
 //
@@ -32,12 +32,15 @@ export default function NavBar() {
           color="white"
           style={{ flex: 0.1 }}
         />
+        <TouchableWithoutFeedback>
+          <Text>Hey</Text>
+        </TouchableWithoutFeedback>
         <TextInput
           ref={refInput}
           onChangeText={(value) => dispatch(setSearchQuery(value))}
           value={weather.search}
           style={styles.input}
-          onSelectionChange={() => alert("Op")}
+          // onSelectionChange={() => alert("Op")}
         />
         {/* <ActivityIndicator size="small" color={"white"} style={{ flex: 0.1 }} /> */}
       </View>

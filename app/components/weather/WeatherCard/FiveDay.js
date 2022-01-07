@@ -74,6 +74,12 @@ export default function FiveDay({ weather }) {
                     {Math.floor(item.main.feels_like)}°C
                   </Text>
                 </View>
+                <View style={{ flexDirection: "row", alignItems: "baseline" }}>
+                  <Text style={{ fontWeight: "bold", color: "grey" }}>
+                    Pressure:{" "}
+                  </Text>
+                  <Text style={{ fontSize: 16 }}>{item.main.pressure} hPa</Text>
+                </View>
                 <View style={{ flexDirection: "row", alignItems: "center" }}>
                   <Text style={{ fontWeight: "bold", color: "grey" }}>
                     Wind:{" "}
