@@ -20,7 +20,6 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     marginVertical: 10,
     width: 150,
-    height: "auto",
   },
   homeHistoryCardHeader: {
     borderTopLeftRadius: 10,

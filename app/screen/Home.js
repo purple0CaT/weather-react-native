@@ -1,8 +1,8 @@
 import React, { useRef, useState } from "react";
 import { RefreshControl, ScrollView, Text, View } from "react-native";
 import NavBar from "../components/navbar/NavBar";
-import HomeHistory from "../components/weather/MainWeatherCard/HomeHistory";
-import MainCard from "../components/weather/MainWeatherCard/MainCard";
+import HomeHistory from "../components/weather/HomeHistory";
+import MainCard from "../components/weather/WeatherCard/MainCard";
 import weatherNow from "../TestData.json";
 import weather from "../DataHistory.json";
 import { useScrollToTop } from "@react-navigation/native";

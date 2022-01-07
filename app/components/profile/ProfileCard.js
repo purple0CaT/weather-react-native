@@ -13,7 +13,7 @@ export default function ProfileCard() {
   const ref = useRef();
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
-  const weatherL = useSelector(state => state.weather)
+  const weatherL = useSelector((state) => state.weather);
   //
   const handleLogout = () => {
     dispatch(clearUser());
@@ -37,12 +37,18 @@ export default function ProfileCard() {
           </Text>
         </View>
         {/* WEATHER CARD */}
-        <View style={[globStyles.card]}>
+        <View style={[globStyles.card, globStyles.shadowProps]}>
           <CoordCard coord={weatherL.mycord} />
         </View>
         {/* PROFILE CARD */}
-        <View style={[globStyles.card, { flexDirection: "column" }]}>
-          <ProfileHistory history={weather.history} />
+        <View
+          style={[
+            globStyles.card,
+            { flexDirection: "column" },
+            globStyles.shadowProps,
+          ]}
+        >
+          <ProfileHistory history={weather.history}/>
         </View>
         {/* LOGOUT */}
         <View style={{ marginBottom: 10 }}>

@@ -23,7 +23,7 @@ export default function CoordCard({ coord }) {
     );
   };
   return (
-    <View style={{ width: "100%" }}>
+    <>
       {coord.lat ? (
         <View style={{ width: "100%" }}>
           <View style={{ marginVertical: 5 }}>
@@ -32,7 +32,7 @@ export default function CoordCard({ coord }) {
           <View style={[{ width: "100%", height: 300 }, globStyle.shadowProps]}>
             <Map coord={coord} />
           </View>
-          <View style={{ marginVertical: 5 }}>
+          <View style={{ marginTop: 10 }}>
             <Button
               title="Delete my location"
               color="tomato"
@@ -49,6 +49,6 @@ export default function CoordCard({ coord }) {
           />
         </View>
       )}
-    </View>
+    </>
   );
 }

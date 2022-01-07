@@ -1,9 +1,9 @@
 import React from "react";
-import {
-    Button, StyleSheet, Text, TouchableOpacity, View
-} from "react-native";
+import { Button, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 export default function ProfileHistory({ history }) {
+  const navigation = useNavigation();
   return (
     <>
       <Text
@@ -17,14 +17,39 @@ export default function ProfileHistory({ history }) {
       >
         Your history search
       </Text>
-      {history.map((item) => (
-        <TouchableOpacity key={item.id + Math.random()} style={styles.item}>
-          <Text style={{ color: "white", fontSize: 18 }}>{item.id}</Text>
-        </TouchableOpacity>
-      ))}
-      <View style={{ marginVertical: 10 }}>
-        <Button title="Clear history" color="tomato" />
-      </View>
+      {history.length > 0 ? (
+        <>
+          {history.map((item) => (
+            <TouchableOpacity
+              key={item.id + Math.random()}
+              style={styles.item}
+              onPress={() => navigation.navigate("Weather")}
+            >
+              <Text style={{ color: "white", fontSize: 18 }}>{item.id}</Text>
+            </TouchableOpacity>
+          ))}
+          <View style={{ marginVertical: 10 }}>
+            <Button
+              title="Clear history"
+              color="tomato"
+              onPress={() => alert("clear")}
+            />
+          </View>
+        </>
+      ) : (
+        <View>
+          <Text
+            style={{
+              textAlign: "center",
+              color: "grey",
+              fontSize: 17,
+              marginBottom: 15,
+            }}
+          >
+            History search empty
+          </Text>
+        </View>
+      )}
     </>
   );
 }

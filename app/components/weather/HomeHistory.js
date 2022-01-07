@@ -2,8 +2,8 @@ import dateFormat from "dateformat";
 import React from "react";
 import { Feather } from "@expo/vector-icons";
 import { FlatList, Image, Text, TouchableOpacity, View } from "react-native";
-import globalStyle from "../../../../style/global";
-import styles from "../../../../style/weatherCard";
+import globalStyle from "../../../style/global";
+import styles from "../../../style/weatherCard";
 //
 export default function HomeHistory({ weather }) {
   return (
