@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from "react";
 import { Button, ScrollView, Text, View } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import globStyles from "../../../style/global.js";
-import weather from "../../DataHistory.json";
 import { clearCord, clearUser } from "../../redux/actions";
 import NavBar from "../navbar/NavBar.js";
 import ProfileHistory from "./ProfileHistory.js";
@@ -13,7 +12,7 @@ export default function ProfileCard() {
   const ref = useRef();
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
-  const weatherL = useSelector((state) => state.weather);
+  const weather = useSelector((state) => state.weather);
   //
   const handleLogout = () => {
     dispatch(clearUser());
@@ -38,7 +37,7 @@ export default function ProfileCard() {
         </View>
         {/* WEATHER CARD */}
         <View style={[globStyles.card, globStyles.shadowProps]}>
-          <CoordCard coord={weatherL.mycord} />
+          <CoordCard coord={weather.mycord} />
         </View>
         {/* PROFILE CARD */}
         <View
@@ -48,7 +47,7 @@ export default function ProfileCard() {
             globStyles.shadowProps,
           ]}
         >
-          <ProfileHistory history={weather.history}/>
+          <ProfileHistory history={weather.history} />
         </View>
         {/* LOGOUT */}
         <View style={{ marginBottom: 10 }}>

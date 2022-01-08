@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import { View, Text, ScrollView, RefreshControl } from "react-native";
-import style from "../../../../style/weatherCard.js";
+import React from "react";
+import { View } from "react-native";
 import globalStyle from "../../../../style/global.js";
-import MainWeather from "./MainWeather.js";
+import style from "../../../../style/weatherCard.js";
 import Map from "../../Map/Map.js";
+import MainWeather from "./MainWeather.js";
 
 export default function MainCard({ data }) {
   return (

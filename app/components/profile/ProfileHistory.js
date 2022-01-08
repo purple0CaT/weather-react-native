@@ -1,9 +1,17 @@
 import React from "react";
 import { Button, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { fetchLocationData, setEmptyHistory } from "../../redux/actions";
+import { useDispatch } from "react-redux";
 
 export default function ProfileHistory({ history }) {
   const navigation = useNavigation();
+  const dispatch = useDispatch();
+  // 
+  const handleHistoryCitySearch = (item) => {
+    dispatch(fetchLocationData({ lat: item.coord.lat, lon: item.coord.lon }));
+    navigation.navigate("Weather");
+  };
   return (
     <>
       <Text
@@ -21,18 +29,20 @@ export default function ProfileHistory({ history }) {
         <>
           {history.map((item) => (
             <TouchableOpacity
-              key={item.id + Math.random()}
+              key={item.dt + Math.random()}
               style={styles.item}
-              onPress={() => navigation.navigate("Weather")}
+              onPress={() => handleHistoryCitySearch(item)}
             >
-              <Text style={{ color: "white", fontSize: 18 }}>{item.id}</Text>
+              <Text style={{ color: "white", fontSize: 18 }}>
+                {item.name}, {item.sys.country}
+              </Text>
             </TouchableOpacity>
           ))}
           <View style={{ marginVertical: 10 }}>
             <Button
               title="Clear history"
               color="tomato"
-              onPress={() => alert("clear")}
+              onPress={() => dispatch(setEmptyHistory())}
             />
           </View>
         </>

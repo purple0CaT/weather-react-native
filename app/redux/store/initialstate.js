@@ -6,7 +6,6 @@ export const initialState = {
     search: "",
     oneday: {},
     days: [],
-    latest: [],
     onFocus: false,
     loading: false,
     history: [],

@@ -1,13 +1,16 @@
+import { Feather } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 import dateFormat from "dateformat";
 import React from "react";
-import { Feather } from "@expo/vector-icons";
 import { FlatList, Image, Text, TouchableOpacity, View } from "react-native";
+import { useDispatch } from "react-redux";
 import globalStyle from "../../../style/global";
 import styles from "../../../style/weatherCard";
-import { useNavigation } from "@react-navigation/native";
+import { fetchLocationData } from "../../redux/actions";
 
 //
 export default function HomeHistory({ weather }) {
+  const dispatch = useDispatch();
   const navigation = useNavigation();
   return (
     <View style={{ height: 340 }}>
@@ -23,11 +26,16 @@ export default function HomeHistory({ weather }) {
         Latest search
       </Text>
       <FlatList
-        data={weather.history}
+        data={weather.history.reverse()}
         keyExtractor={(W) => W.id + Math.random()}
         renderItem={({ item }) => (
           <TouchableOpacity
-            onPress={() => navigation.navigate("Weather")}
+            onPress={() => {
+              dispatch(
+                fetchLocationData({ lat: item.coord.lat, lon: item.coord.lon }),
+              );
+              navigation.navigate("Weather");
+            }}
             style={[styles.homeHistoryCard, globalStyle.shadowProps]}
           >
             <>

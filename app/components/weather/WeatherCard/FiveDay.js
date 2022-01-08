@@ -1,14 +1,14 @@
+import { Feather } from "@expo/vector-icons";
 import dateFormat from "dateformat";
 import React from "react";
-import { Feather } from "@expo/vector-icons";
-import { FlatList, Image, Text, TouchableOpacity, View } from "react-native";
+import { FlatList, Image, Text, View } from "react-native";
 import globalStyle from "../../../../style/global";
 import styles from "../../../../style/weatherCard";
 //
 
 export default function FiveDay({ weather }) {
   return (
-    <View style={{ height: 320 }}>
+    <View style={{ height: 330 }}>
       <Text
         style={{
           fontSize: 30,
@@ -21,13 +21,11 @@ export default function FiveDay({ weather }) {
         Weather in 5 days
       </Text>
       <FlatList
-        data={weather.history}
-        keyExtractor={(W) => W.id + Math.random()}
+        data={weather}
+        keyExtractor={(W) => W.dt}
+        initialNumToRender={5}
         renderItem={({ item }) => (
-          <TouchableOpacity
-            onPress={() => alert("Click")}
-            style={[styles.homeHistoryCard, globalStyle.shadowProps]}
-          >
+          <View style={[styles.homeHistoryCard, globalStyle.shadowProps]}>
             <>
               <View style={styles.homeHistoryCardHeader}>
                 <Text>{dateFormat(new Date(item.dt * 1000), "HH:MM ")}</Text>
@@ -110,7 +108,7 @@ export default function FiveDay({ weather }) {
                 </View>
               </View>
             </>
-          </TouchableOpacity>
+          </View>
         )}
         horizontal
         style={{ width: "100%", height: 100 }}
