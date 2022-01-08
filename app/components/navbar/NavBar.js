@@ -1,30 +1,23 @@
 import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
-import { useNavigation } from "@react-navigation/native";
 import React, { useEffect, useRef, useState } from "react";
 import {
-  ActivityIndicator, Text,
+  ActivityIndicator,
   TextInput,
   TouchableOpacity,
   TouchableWithoutFeedback,
   View
 } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
-import globalStyle from "../../../style/global.js";
 import styles from "../../../style/navBar.js";
 import { fetchSearchQuery } from "../../../utility/navBarSsearch.js";
-import {
-  fetchLocationData,
-  setSearchFocus,
-  setSearchQuery
-} from "../../redux/actions.js";
-
+import { setSearchFocus, setSearchQuery } from "../../redux/actions.js";
+import SearchCityList from "./SearchCityList.js";
 //
 export default function NavBar() {
   const weather = useSelector((state) => state.weather);
   const [SearchLoader, setSearchLoader] = useState(false);
   const [SearchData, setSearchData] = useState();
   const dispatch = useDispatch();
-  const navigation = useNavigation();
   const refInput = useRef();
   //
   const handleSearchData = async (value) => {
@@ -38,21 +31,13 @@ export default function NavBar() {
     setSearchLoader(false);
   };
   //
-  const handleCitySearch = async (item) => {
-    navigation.navigate("Weather");
-    dispatch(fetchLocationData({ lat: item.lat, lon: item.lon }));
-  };
-  //
-  const handleFocusInput = () => {
-    refInput.current.focus();
-  };
   useEffect(() => {
     if (weather.onFocus) {
-      handleFocusInput();
+      refInput.current.focus();
     } else {
       refInput.current.blur();
     }
-  }, [weather.onFocus]);
+  }, [weather]);
   return (
     <>
       <View style={styles.navbarWrapper}>
@@ -124,46 +109,8 @@ export default function NavBar() {
               alignItems: "center",
             }}
           >
-            {SearchData && (
-              <View
-                style={[
-                  {
-                    backgroundColor: "white",
-                    width: "80%",
-                    padding: 15,
-                    borderBottomLeftRadius: 10,
-                    borderBottomRightRadius: 10,
-                  },
-                  globalStyle.shadowProps,
-                ]}
-              >
-                {SearchData.length > 0 &&
-                  SearchData.map((item) => (
-                    <TouchableOpacity
-                      key={item.lat + Math.random()}
-                      onPress={() => handleCitySearch(item)}
-                    >
-                      <View
-                        style={{
-                          marginVertical: 10,
-                          borderBottomWidth: 1,
-                          borderColor: "grey",
-                        }}
-                      >
-                        <Text
-                          style={{
-                            fontSize: 20,
-                            fontWeight: "bold",
-                            color: "#4f4f4f",
-                          }}
-                        >
-                          {item.name}, {item.state}, {item.country}
-                        </Text>
-                      </View>
-                    </TouchableOpacity>
-                  ))}
-              </View>
-            )}
+            {/*  SEARCH CITY LIST */}
+            {SearchData && <SearchCityList SearchData={SearchData} />}
           </View>
         </TouchableWithoutFeedback>
       )}
