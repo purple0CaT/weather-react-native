@@ -1,23 +1,22 @@
 {
   "expo": {
-    "name": "weather-react-native",
-    "slug": "weather-react-native",
+    "name": "Click Weather",
+    "slug": "Click-Weather",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/weather.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/weather.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.purplekot.click-weather"
     },
     "android": {
       "adaptiveIcon": {
