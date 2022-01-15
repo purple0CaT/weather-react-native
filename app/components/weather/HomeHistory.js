@@ -26,17 +26,19 @@ export default function HomeHistory({ weather }) {
         Latest search
       </Text>
       <FlatList
+        horizontal
+        style={{ width: "100%", height: 350 }}
         data={weather.history.reverse()}
         keyExtractor={(W) => W.id + Math.random()}
         renderItem={({ item }) => (
           <TouchableOpacity
+            style={[styles.homeHistoryCard, globalStyle.shadowProps]}
             onPress={() => {
               dispatch(
                 fetchLocationData({ lat: item.coord.lat, lon: item.coord.lon }),
               );
               navigation.navigate("Weather");
             }}
-            style={[styles.homeHistoryCard, globalStyle.shadowProps]}
           >
             <>
               <View style={styles.homeHistoryCardHeader}>
@@ -46,7 +48,13 @@ export default function HomeHistory({ weather }) {
                 </Text>
                 <Text> {dateFormat(new Date(item.dt * 1000), "d mmm")}</Text>
               </View>
-              <View style={{ padding: 5, flexDirection: "column" }}>
+              <View
+                style={{
+                  padding: 5,
+                  flexDirection: "column",
+                  borderBottomStartRadius: 10,
+                }}
+              >
                 <View
                   style={{ alignItems: "center", justifyContent: "center" }}
                 >
@@ -87,7 +95,13 @@ export default function HomeHistory({ weather }) {
                     {Math.floor(item.main.feels_like)}°C
                   </Text>
                 </View>
-                <View style={{ flexDirection: "row", alignItems: "center" }}>
+                <View
+                  style={{
+                    flexDirection: "row",
+                    alignItems: "center",
+                    borderBottomStartRadius: 10,
+                  }}
+                >
                   <Text style={{ fontWeight: "bold", color: "grey" }}>
                     Wind:{" "}
                   </Text>
@@ -96,7 +110,7 @@ export default function HomeHistory({ weather }) {
                   </Text>
                   <View
                     style={{
-                      borderRadius: "50%",
+                      borderRadius: 1000,
                       padding: 2,
                       backgroundColor: "#CAEEEE",
                       shadowColor: "grey",
@@ -119,8 +133,6 @@ export default function HomeHistory({ weather }) {
             </>
           </TouchableOpacity>
         )}
-        horizontal
-        style={{ width: "100%", height: 100 }}
       />
     </View>
   );

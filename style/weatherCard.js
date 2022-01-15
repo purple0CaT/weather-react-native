@@ -14,11 +14,10 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   homeHistoryCard: {
-    // overflow: "hidden",
-    marginHorizontal: 5,
     borderRadius: 10,
+    height: "100%",
+    marginHorizontal: 5,
     backgroundColor: "white",
-    marginVertical: 10,
     width: 150,
   },
   homeHistoryCardHeader: {

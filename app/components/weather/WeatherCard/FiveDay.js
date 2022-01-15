@@ -87,7 +87,7 @@ export default function FiveDay({ weather }) {
                   </Text>
                   <View
                     style={{
-                      borderRadius: "50%",
+                      borderRadius: 1000,
                       padding: 2,
                       backgroundColor: "#CAEEEE",
                       shadowColor: "grey",
