@@ -2,6 +2,8 @@ import { StyleSheet } from "react-native";
 //
 const styles = StyleSheet.create({
   navbarWrapper: {
+    zIndex: 999,
+    position: "relative",
     flexDirection: "row",
     justifyContent: "center",
     backgroundColor: "#C5E5E5",
@@ -9,9 +11,11 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.4,
     shadowRadius: 4,
     shadowOffset: {
-      height: 1,
-      width: 1,
+      height: 3,
+      width: 2,
     },
+    elevation: 4,
+    // marginVertical: 10,
   },
   input: {
     flex: 0.8,

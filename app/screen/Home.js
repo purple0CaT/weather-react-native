@@ -32,7 +32,7 @@ export default function HomeScreen() {
   }, []);
   return (
     <>
-      <NavBar />
+      {/* <NavBar /> */}
       <ScrollView ref={ref}>
         <RefreshControl
           refreshing={Refresh}

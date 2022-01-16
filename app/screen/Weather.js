@@ -18,7 +18,7 @@ export default function Weather() {
   useScrollToTop(ref);
   return (
     <View style={{ backgroundColor: "#EEEEEE", flex: 1 }}>
-      <NavBar />
+      {/* <NavBar /> */}
       <ScrollView ref={ref}>
         <RefreshControl
           refreshing={Refresh}

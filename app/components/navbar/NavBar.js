@@ -2,10 +2,12 @@ import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
 import React, { useEffect, useRef, useState } from "react";
 import {
   ActivityIndicator,
+  Keyboard,
   TextInput,
   TouchableOpacity,
   TouchableWithoutFeedback,
-  View
+  View,
+  StatusBar,
 } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "../../../style/navBar.js";
@@ -13,7 +15,7 @@ import { fetchSearchQuery } from "../../../utility/navBarSsearch.js";
 import { setSearchFocus, setSearchQuery } from "../../redux/actions.js";
 import SearchCityList from "./SearchCityList.js";
 //
-export default function NavBar() {
+export default function NavBar(props) {
   const weather = useSelector((state) => state.weather);
   const [SearchLoader, setSearchLoader] = useState(false);
   const [SearchData, setSearchData] = useState();
@@ -32,6 +34,7 @@ export default function NavBar() {
   };
   //
   useEffect(() => {
+    Keyboard.dismiss();
     if (weather.onFocus) {
       refInput.current.focus();
     } else {
@@ -94,7 +97,17 @@ export default function NavBar() {
           )}
         </View>
       </View>
+
+      {/* SEARCH MODAL */}
       {weather.onFocus && (
+        // <View
+        //   style={{
+        //     width: "100%",
+        //     height: "100%",
+        //     position: "absolute",
+        //     bottom: 0,
+        //   }}
+        // >
         <TouchableWithoutFeedback
           onPress={() => dispatch(setSearchFocus(false))}
         >
@@ -102,7 +115,8 @@ export default function NavBar() {
             style={{
               position: "absolute",
               bottom: 0,
-              zIndex: 900,
+              flex: 1,
+              zIndex: 999,
               left: 0,
               right: 0,
               top: 45,
@@ -113,7 +127,9 @@ export default function NavBar() {
             {SearchData && <SearchCityList SearchData={SearchData} />}
           </View>
         </TouchableWithoutFeedback>
+        // </View>
       )}
+      <>{props.children}</>
     </>
   );
 }

@@ -21,7 +21,7 @@ export default function ProfileCard() {
   useScrollToTop(ref);
   return (
     <>
-      <NavBar />
+      {/* <NavBar /> */}
       <ScrollView
         ref={ref}
         style={{
